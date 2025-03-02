@@ -1,0 +1,23 @@
+{
+  "name": "landing-template",
+  "version": "1.0.0",
+  "description": "",
+  "source": "index.html",
+  "scripts": {
+    "sass:watch": "sass --style=compressed --watch styles:dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rustembey/landing-template.git"
+  },
+  "author": "Rustem Japarov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rustembey/landing-template/issues"
+  },
+  "homepage": "https://github.com/rustembey/landing-template#readme",
+  "dependencies": {
+    "parcel": "^2.13.3",
+    "sass": "^1.85.1"
+  }
+}
