@@ -1,0 +1,134 @@
+@use 'variables' as v;
+@use'sass:color';
+@use 'mixins' as m;
+@use 'placeholders';
+
+.header {
+    width: 100%;
+    height: 52px;
+    background-color: color.adjust(v.$color-white, $alpha: -0.90);
+    // border-bottom: 1px solid v.$color-white;
+    border: {
+        bottom: {
+            width: 1px;
+            style: solid;
+            color: v.$color-white;
+        }
+    }
+   
+    .nav {
+        height: 52px;
+        // display: flex;
+        // justify-content: start;
+        // align-items: start;
+        @include m.d-flex(start, center);
+
+        &__title {
+            height: 100%;
+            width: 254px;
+            border: {
+                right: {
+                    width: 1px;
+                    style: solid;
+                    color: v.$color-white;
+                }
+            }
+            @include m.d-flex(center, center);
+
+            &-link {
+                font-size: 25px;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: v.$color-white;
+                span {
+                    font-weight: 700;
+                }
+            }
+            @extend %hover-text-black;
+           
+        }
+
+        &__links {
+            flex-grow: 1;
+            .list {
+                @include m.d-flex(start, center, nowrap, row, 5vw, 0);
+                padding: 0 0 0 100px;
+
+                &__item {
+                    
+                    &-link {
+                        position: relative;
+                        font-size: 22px;
+                        font-weight: 400;
+                        color: v.$color-white;
+                    
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 100%;
+                            left: 50%;
+                            translate: -50%;
+                            width: 0;
+                            height: 2px;
+                            background-color: v.$color-black;
+                            transition: width 0.3s ease; 
+                        }
+                    
+                        &:hover {
+                            &::after {
+                                width: 100%;
+                            }
+                        }
+
+                        @media(max-width:v.$media_md){
+                            font-size: 20px;
+                        }
+                    }
+        
+                    
+                    
+                }
+                @media (max-width: v.$media_lg) {
+                    @include m.d-flex(center, center, nowrap, row, min(4vw), 0);
+                    padding: 0 0 0 0;
+                }
+            }
+
+            
+
+        }
+
+        .covid {
+            @include m.d-flex(center, center);
+
+            height: 100%;
+            padding: 0 30px;
+            border: {
+                left: 1px solid v.$color-white;
+                right: 1px solid v.$color-white;
+            };
+
+            &__link{
+                font-size: 16px;
+                font-weight: 700;
+                color: v.$color-white;
+            }
+            @extend %hover-text-black;
+        }
+
+        .globe {
+            width: 88px;
+            @include m.d-flex(center, center);
+
+            &__link {
+                &-icon {
+                    width: 28px;
+                    height: 28px;
+                    fill: v.$color-white;
+                }
+                @extend %hover-icon-black;
+                
+            }
+        }
+    }
+}
