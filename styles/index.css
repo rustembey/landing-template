@@ -922,13 +922,13 @@ html {
   color: #FFFFD6;
 }
 .info-card .bg-green-box {
-  background: url(/static/assets/images/bg-2.jpg);
+  background: url(./static/assets/images/bg-2.jpg);
 }
 .info-card .bg-yellow-box {
-  background: url(/static/assets/images/bg-1.jpg);
+  background: url(./static/assets/images/bg-1.jpg);
 }
 .info-card .bg-blue-box {
-  background: url(/static/assets/images/bg-4.jpg);
+  background: url(./static/assets/images/bg-4.jpg);
 }
 
 body {
