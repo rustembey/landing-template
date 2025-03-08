@@ -2,28 +2,20 @@
   "name": "landing-template",
   "version": "1.0.0",
   "description": "",
-  "source": "index.html",
   "scripts": {
-  "sass:watch": "sass --watch styles/index.scss dist/index.css",
-  "sass:build": "sass styles/index.scss dist/index.css --style compressed",
-  "build": "parcel build index.html",
-  "clean": "rimraf dist build"
-},
+    "sass:watch": "sass --watch styles/index.scss dist/index.css",
+    "sass:build": "sass styles/index.scss dist/index.css --style compressed",
+    "build": "npm run clean && npm run sass:build",
+    "clean": "rimraf dist build"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "sass": "^1.85.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rustembey/landing-template.git"
   },
   "author": "Rustem Japarov",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rustembey/landing-template/issues"
-  },
-  "homepage": "https://github.com/rustembey/landing-template#readme",
-  "dependencies": {
-    "sass": "^1.85.1"
-  },
-  "devDependencies": {
-    "rimraf": "^5.0.5",
-    "svgo": "^3.3.2"
-  }
+  "license": "ISC"
 }

@@ -7,7 +7,7 @@
     position: relative;
     max-width: 90%;
     height: 800px;
-    margin: 60px auto 30px auto;
+    margin: 60px auto 20px auto;
     padding: 60px 20px 20px 20px;
     border: 10px solid v.$color-white;
     border-radius: 32px;
@@ -65,7 +65,9 @@
         @include m.d-flex(end, center, nowrap, row, 10px);
 
         &-image {
-            @include m.position(absolute, 1, -1, top, right, 5px, 500px);
+            width: 220px;
+            aspect-ratio: 1;
+            @include m.position(absolute, 1, -1, top, right, -10px, 550px);
         }
 
         &-content {
@@ -176,8 +178,8 @@
 
             &-image {
                 width: 200px;
-                height: auto;
-                @include m.position(absolute, -1, -1, top, right, 120px, 150px);
+                aspect-ratio: 1;
+                @include m.position(absolute, -1, -1, top, right, 10px, 450px);
             }
 
             &-content {
@@ -235,9 +237,9 @@
             height: 140px;
 
             &-image {
-                width: 200px;
-                height: auto;
-                @include m.position(absolute, -1, -1, top, right, 120px, 100px);
+                width: 100px;
+                aspect-ratio: 1;
+                @include m.position(absolute, -1, -1, top, right, 150px, 170px);
             }
 
             &-content {
@@ -302,9 +304,7 @@
             margin: auto;
 
             &-image {
-                width: 130px;
-                height: auto;
-                @include m.position(absolute, 1, -1, top, right, -60px, 120px);
+                display: none;
             }
 
             &-content {
@@ -380,9 +380,7 @@
             padding: 0 10px;
 
             &-image {
-                width: 130px;
-                height: auto;
-                @include m.position(absolute, 1, -1, top, right, 190px, 80px);
+                display: none;
             }
 
             &-content {
