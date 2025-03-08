@@ -4,10 +4,11 @@
   "description": "",
   "source": "index.html",
   "scripts": {
-    "sass:watch": "sass --style=compressed --watch styles:dist",
-    "parcel:watch": "parcel serve --dist-dir public",
-    "parcel:build": "parcel build --dist-dir build --public-url ./"
-  },
+  "sass:watch": "sass --watch styles/index.scss dist/index.css",
+  "sass:build": "sass styles/index.scss dist/index.css --style compressed",
+  "build": "parcel build index.html",
+  "clean": "rimraf dist build"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rustembey/landing-template.git"
@@ -19,10 +20,10 @@
   },
   "homepage": "https://github.com/rustembey/landing-template#readme",
   "dependencies": {
-    "parcel": "^2.13.3",
     "sass": "^1.85.1"
   },
   "devDependencies": {
+    "rimraf": "^5.0.5",
     "svgo": "^3.3.2"
   }
 }

@@ -1,0 +1,428 @@
+@use 'variables' as v;
+@use'sass:color';
+@use 'mixins' as m;
+@use 'placeholders';
+
+.hero {
+    position: relative;
+    max-width: 90%;
+    height: 800px;
+    margin: 60px auto 30px auto;
+    padding: 60px 20px 20px 20px;
+    border: 10px solid v.$color-white;
+    border-radius: 32px;
+    background: url('/static/assets/images/cloud_alpha.png') center/contain no-repeat;
+
+    &__content {
+        position: relative;
+        width: 900px;
+        margin: 0 auto;
+
+        .hero__title {
+            @include m.font(7.5em, 700, v.$color-primary);
+            line-height: 1;
+            user-select: none;
+        }
+
+        .hero__action-button {
+            width: 380px;
+            height: 80px;
+            background-color: v.$color-primary;
+            border-radius: 20px;
+            border: none;
+            -webkit-box-shadow: 5px 5px 0px 0px #E6754B, 10px 10px 0px 0px #FFFFD6, 15px 15px 0px 0px #E6754B, 20px 20px 0px 0px #FFFFD6, 25px 25px 0px 0px #E6754B, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+            box-shadow: 5px 5px 0px 0px #FFFFD6, 10px 10px 0px 0px #E6754B, 15px 15px 0px 0px #FFFFD6, 20px 20px 0px 0px #E6754B, 25px 25px 0px 0px #FFFFD6, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+            @include m.font(22px, 500, v.$color-white);
+            @include m.position(absolute, 1, -1, bottom, right, 5px, 1.1em);
+
+            &:hover {
+                border: 1px solid v.$color-primary;
+                background-color: v.$color-white;
+                color: v.$color-primary;
+                -webkit-box-shadow: 5px 5px 0px 0px #FFFFD6, 10px 10px 0px 0px #E6754B, 15px 15px 0px 0px #FFFFD6, 20px 20px 0px 0px #E6754B, 25px 25px 0px 0px #FFFFD6, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+                box-shadow: 5px 5px 0px 0px #E6754B, 10px 10px 0px 0px #FFFFD6, 15px 15px 0px 0px #E6754B, 20px 20px 0px 0px #FFFFD6, 25px 25px 0px 0px #E6754B, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+                transition: ease-in-out;
+                transition-duration: 0.4s;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid v.$color-white;
+            }
+        }
+    }
+
+    &__notify {
+        position: relative;
+        margin: 70px auto;
+        width: 680px;
+        height: 96px;
+        background-color: color.adjust(v.$color-white, $alpha: -0.35);
+        border-radius: 20px;
+        @include m.d-flex(end, center, nowrap, row, 10px);
+
+        &-image {
+            @include m.position(absolute, 1, -1, top, right, 5px, 500px);
+        }
+
+        &-content {
+            width: 450px;
+            height: 100%;
+            @include m.d-flex(center, center, nowrap);
+            @include m.font(14px, 400, v.$color-accent);
+            border-right: 1px solid v.$color-accent;
+            padding: 12px;
+        }
+
+        &-button {
+            width: 120px;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            @include m.font(22px, 400, v.$color-accent);
+            text-transform: uppercase;
+            border-radius: inherit;
+
+            &:hover {
+                color: v.$color-primary;
+                transition-duration: 0.4s;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus-visible {
+                outline: 2px solid v.$color-white;
+            }
+        }
+    }
+
+    &__scroll {
+        @include m.position(absolute, 1, -1, bottom, left, 200px, 10px);
+
+        &-content {
+            position: relative;
+            @include m.font(16px, 600, v.$color-white);
+            writing-mode: vertical-rl;
+
+            &::after {
+                content: " ";
+                display: block;
+                width: 1px;
+                height: 75px;
+                background-color: v.$color-white;
+                @include m.position(absolute, 1, -1, top, left, 100px, 8px);
+            }
+        }
+    }
+}
+
+@media (max-width: v.$media_l) {
+
+    .hero {
+        width: 90%;
+        height: auto;
+        padding: 40px 15px;
+        margin: 30px auto;
+
+        &__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 300px;
+
+            .hero__title {
+                @include m.font(80px, 700, v.$color-primary);
+                text-align: center;
+            }
+
+            .hero__action-button {
+                position: relative;
+                align-self: center;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: v.$media_m) {
+
+    .hero {
+        background: url('/static/assets/images/cloud_alpha.png') 0 10%/contain no-repeat;
+
+        &__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
+
+            .hero__title {
+                @include m.font(60px, 700, v.$color-primary);
+            }
+        }
+
+        &__notify {
+            @include m.d-flex(center, center, nowrap, column);
+            width: 550px;
+            padding: 0 10px;
+            height: 140px;
+
+            &-image {
+                width: 200px;
+                height: auto;
+                @include m.position(absolute, -1, -1, top, right, 120px, 150px);
+            }
+
+            &-content {
+                width: 100%;
+                height: 100%;
+                @include m.d-flex(center, center, nowrap);
+                @include m.font(14px, 400, v.$color-accent);
+                border-right: none;
+                border-bottom: 1px solid v.$color-accent;
+                padding: 12px;
+            }
+
+            &-button {
+                width: 120px;
+                height: 100%;
+                background-color: transparent;
+                border: none;
+                @include m.font(22px, 400, v.$color-accent);
+                text-transform: uppercase;
+                border-radius: inherit;
+            }
+        }
+    }
+}
+
+@media (max-width: v.$media_s) {
+
+    .hero {
+        background: url('/static/assets/images/cloud_alpha.png') 0 10%/contain no-repeat;
+        &__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 30px;
+            min-height: 300px;
+
+            .hero__title {
+                @include m.font(60px, 700, v.$color-primary);
+            }
+
+            .hero__action-button {
+                width: 320px;
+                font-size: 20px;
+                position: relative;
+                align-self: center;
+                margin-top: 20px;
+            }
+        }
+
+        &__notify {
+            @include m.d-flex(center, center, nowrap, column);
+            width: 430px;
+            padding: 0 10px;
+            height: 140px;
+
+            &-image {
+                width: 200px;
+                height: auto;
+                @include m.position(absolute, -1, -1, top, right, 120px, 100px);
+            }
+
+            &-content {
+                width: 100%;
+                height: 100%;
+                @include m.d-flex(center, center, nowrap);
+                @include m.font(14px, 400, v.$color-accent);
+                border-right: none;
+                border-bottom: 1px solid v.$color-accent;
+                padding: 12px;
+            }
+
+            &-button {
+                width: 120px;
+                height: 100%;
+                background-color: transparent;
+                border: none;
+                @include m.font(22px, 400, v.$color-accent);
+                text-transform: uppercase;
+                border-radius: inherit;
+            }
+        }
+    }
+}
+
+@media (max-width: v.$media_xs) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 30px;
+        &__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            margin: auto;
+
+            .hero__title {
+                @include m.font(40px, 700, v.$color-primary);
+                text-align: center;
+            }
+
+            .hero__action-button {
+                width: 80%;
+                position: relative;
+                align-self: center;
+                margin-top: 20px;
+                box-shadow: none;
+                font-size: 18px;
+                right: 0;
+            }
+        }
+
+        &__notify {
+            width: clamp(270px, 75vw, 380px);
+            height: 150px;
+            padding: 0 10px;
+            margin: auto;
+
+            &-image {
+                width: 130px;
+                height: auto;
+                @include m.position(absolute, 1, -1, top, right, -60px, 120px);
+            }
+
+            &-content {
+                max-width: 100%;
+                height: 100%;
+                @include m.d-flex(center, center, nowrap);
+                @include m.font(14px, 400, v.$color-accent);
+                border-right: none;
+                padding: 12px;
+            }
+
+            &-button {
+                width: 120px;
+                height: 100%;
+                background-color: transparent;
+                border: none;
+                @include m.font(20px, 400, v.$color-accent);
+                text-transform: uppercase;
+                border-radius: inherit;
+            }
+        }
+
+        &__scroll {
+        @include m.position(absolute, 1, -1, bottom, left, 200px, 10px);
+
+        &-content {
+            position: relative;
+            @include m.font(16px, 600, v.$color-white);
+            writing-mode: vertical-rl;
+
+            &::after {
+                content: " ";
+                display: block;
+                width: 1px;
+                height: 75px;
+                background-color: v.$color-white;
+                @include m.position(absolute, 1, -1, top, left, 100px, 8px);
+            }
+        }
+    }
+    }
+}
+
+@media (max-width: v.$media_min) {
+    .hero {
+        &__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+
+            .hero__title {
+                @include m.font(40px, 700, v.$color-primary);
+                text-align: center;
+            }
+
+            .hero__action-button {
+                width: 80%;
+                position: relative;
+                align-self: center;
+                margin-top: 20px;
+                box-shadow: none;
+                font-size: 18px;
+                right: 0;
+            }
+        }
+
+        &__notify {
+            width: clamp(270px, 75vw, 380px);
+            height: 190px;
+            padding: 0 10px;
+
+            &-image {
+                width: 130px;
+                height: auto;
+                @include m.position(absolute, 1, -1, top, right, 190px, 80px);
+            }
+
+            &-content {
+                max-width: 100%;
+                height: 100%;
+                text-align: center;
+                border-right: none;
+                padding: 12px;
+                @include m.font(14px, 400, v.$color-accent);
+
+            }
+
+            &-button {
+                width: 120px;
+                height: 100%;
+                background-color: transparent;
+                border: none;
+                @include m.font(20px, 400, v.$color-accent);
+                text-transform: uppercase;
+                border-radius: inherit;
+            }
+        }
+
+        &__scroll {
+        @include m.position(absolute, 1, -1, top, left, 200px, 10px);
+
+        &-content {
+            position: relative;
+            @include m.font(16px, 600, v.$color-white);
+            writing-mode: vertical-rl;
+
+            &::after {
+                content: " ";
+                display: block;
+                width: 1px;
+                height: 75px;
+                background-color: v.$color-white;
+                @include m.position(absolute, 1, -1, top, left, 100px, 8px);
+            }
+        }
+    }
+    }
+}

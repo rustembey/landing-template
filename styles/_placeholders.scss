@@ -3,14 +3,14 @@
 
 %hover-text-black {
     :hover{
-        color: v.$color-black;
+        color: v.$color-primary;
         transition-duration: 0.3s;
     }
 }
 
 %hover-icon-black {
     :hover{
-        fill: v.$color-black;
+        fill: v.$color-primary;
         transition-duration: 0.3s;
     }
 }
