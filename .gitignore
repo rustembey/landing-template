@@ -5,3 +5,4 @@ public
 build
 .vscode
 .parcel-cache
+.scripts
