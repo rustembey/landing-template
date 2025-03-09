@@ -11,7 +11,7 @@
     padding: 60px 20px 20px 20px;
     border: 10px solid v.$color-white;
     border-radius: 32px;
-    background: url('/static/assets/images/cloud_alpha.png') center/contain no-repeat;
+    background: url("../static/assets/images/cloud_alpha.png") center/contain no-repeat;
 
     &__content {
         position: relative;
@@ -156,7 +156,7 @@
 @media (max-width: v.$media_m) {
 
     .hero {
-        background: url('/static/assets/images/cloud_alpha.png') 0 10%/contain no-repeat;
+        background: url("../static/assets/images/cloud_alpha.png") 0 10%/contain no-repeat;
 
         &__content {
             width: 100%;
@@ -208,7 +208,7 @@
 @media (max-width: v.$media_s) {
 
     .hero {
-        background: url('/static/assets/images/cloud_alpha.png') 0 10%/contain no-repeat;
+        background: url("../static/assets/images/cloud_alpha.png") 0 10%/contain no-repeat;
         &__content {
             width: 100%;
             display: flex;
