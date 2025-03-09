@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build-and-deploy:
@@ -11,23 +11,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 22
-
+          
       - name: Install dependencies
         run: npm install
-
-      - name: Build project
-        run: npm run build  # Сначала стандартная сборка
-
+        
       - name: Prepare for deploy
-        run: npm run prepare-deploy  # Теперь готовим файлы для деплоя
-
+        run: npm run prepare-deploy  # Сначала меняем пути
+        
+      - name: Build project
+        run: npm run build  # Потом собираем проект
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./styles  # Публикуем стили, а не dist
+          publish_dir: .  # Публикуем весь проект
