@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "sass:watch": "sass --watch styles/index.scss dist/index.css",
-    "sass:build": "sass styles/index.scss dist/index.css --style compressed",
-    "build": "npm run clean && npm run sass:build",
-    "clean": "rimraf dist build"
-  },
+  "sass:watch": "sass --watch styles/index.scss dist/index.css",
+  "sass:build": "sass styles/index.scss styles/index.css --style compressed",
+  "prepare-deploy": "node scripts/prepareDeploy.js && npm run sass:build",
+  "build": "npm run clean && npm run sass:build"
+},
   "devDependencies": {
     "rimraf": "^5.0.5",
     "sass": "^1.85.1"
