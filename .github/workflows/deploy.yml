@@ -20,14 +20,20 @@ jobs:
       - name: Install dependencies
         run: npm install
         
-      - name: Prepare for deploy
-        run: npm run prepare-deploy  # Сначала меняем пути
-        
       - name: Build project
-        run: npm run build  # Потом собираем проект
+        run: npm run build
+        
+      - name: Update CSS path in HTML
+        run: |
+          echo "Текущее содержимое index.html:"
+          cat index.html
+          echo "Заменяем путь к CSS файлу..."
+          sed -i 's|./dist/index.css|./styles/index.css|g' index.html
+          echo "Новое содержимое index.html:"
+          cat index.html
         
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .  # Публикуем весь проект
+          publish_dir: .
