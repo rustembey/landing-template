@@ -1,0 +1,45 @@
+@use 'variables' as v;
+@use'sass:color';
+@use 'mixins' as m;
+@use 'placeholders';
+
+
+.work-section {
+    margin: 140px auto 60px auto;
+
+    .work {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+       
+    
+        &__title {
+            color: v.$color-white;
+            text-align: center;
+            font-size: clamp(36px, 5vw, 60px);
+            line-height: 1.2;
+            margin-bottom: 60px;
+        }
+    
+        &__cards-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            padding: 30px;
+    
+            @media screen and (max-width: v.$media_l) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media screen and (max-width: v.$media_m) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    @media screen and (max-width: v.$media_m) {
+        margin: 120px auto 60px auto;
+    }
+
+}

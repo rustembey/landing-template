@@ -1,0 +1,57 @@
+@use 'variables' as v;
+@use'sass:color';
+@use 'mixins' as m;
+@use 'placeholders';
+
+.info-card {
+
+    max-width: 550px;
+    border: 0;
+    width: 100%;
+    margin-inline: auto;
+
+    .container-card {
+        position: relative;
+        border: 10px solid v.$color-white;
+        background-clip: padding-box;
+        border-radius: 45px;
+        padding: 40px;
+        z-index: 2;
+
+        &:hover {
+            border: 8px solid v.$color-white;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            transition-duration: 0.3s;
+        }
+    }
+
+    &__icon {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 32px;
+        fill: v.$color-white;
+    }
+
+    &__title {
+        @include m.font(22px, 400, v.$color-white, normal);
+        letter-spacing: -0.02em;
+        line-height: 40px;
+        padding-bottom: 8px;
+    }
+
+    &__desc {
+        @include m.font(16px, 400, v.$color-white, normal);
+    }
+
+    .bg-green-box {
+        background: url("/static/assets/images/bg-1.jpg")
+        
+    }
+    .bg-yellow-box {
+        background: url("/static/assets/images/bg-2.jpg");
+    }
+    .bg-blue-box {
+        background: url("/static/assets/images/bg-4.jpg");
+    }
+
+}
