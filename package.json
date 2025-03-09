@@ -6,6 +6,7 @@
   "sass:watch": "sass --watch styles/index.scss dist/index.css",
   "sass:build": "sass styles/index.scss styles/index.css --style compressed",
   "prepare-deploy": "node scripts/prepareDeploy.js && npm run sass:build",
+  "clean": "rimraf dist styles/index.css", 
   "build": "npm run clean && npm run sass:build"
 },
   "devDependencies": {
