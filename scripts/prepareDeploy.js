@@ -1,10 +1,8 @@
 const fs = require("fs");
 
 const filePath = "index.html";
-
-// Регулярное выражение для замены dist/index.css на styles/index.css
-const regex = /dist\/index\.css/g;
-const newPath = "styles/index.css";
+const oldPath = "./dist/index.css";
+const newPath = "./styles/index.css";
 
 fs.readFile(filePath, "utf8", (err, data) => {
   if (err) {
@@ -12,18 +10,20 @@ fs.readFile(filePath, "utf8", (err, data) => {
     return;
   }
 
-  if (!regex.test(data)) {
-    console.log("⚠️ Путь к стилям уже обновлён, ничего менять не нужно.");
+  // Проверяем, содержит ли файл старый путь
+  if (!data.includes(oldPath)) {
+    console.log(`⚠️ Путь "${oldPath}" не найден в index.html. Текущее содержимое:`, data);
     return;
   }
 
-  const updatedData = data.replace(regex, newPath);
+  // Заменяем все вхождения старого пути на новый
+  const updatedData = data.replace(new RegExp(oldPath.replace(/\./g, '\\.'), 'g'), newPath);
 
   fs.writeFile(filePath, updatedData, "utf8", (err) => {
     if (err) {
       console.error("❌ Ошибка при записи index.html:", err);
       return;
     }
-    console.log("✅ Путь к стилям успешно обновлён для деплоя!");
+    console.log(`✅ Путь к стилям успешно обновлён с "${oldPath}" на "${newPath}"!`);
   });
 });
